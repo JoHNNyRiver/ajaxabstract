@@ -1,20 +1,32 @@
 const Ajax = function(obj){
+
+	// manipuling the object
 	this.obj = obj || {} || new Object();
 
-	let request = new XMLHttpRequest();
+	const request = new XMLHttpRequest();
 	request.open(this.obj.method, this.obj.url, true);
 
-	request.addEventListener('readystatechange', this.obj.ok);
+	// Action of request and response with load and error
+	request.addEventListener('load', this.obj.ok);
+	request.addEventListener('error', this.obj.error)
 
-	request.send();	
+	// Send of request's
+	request.send();
+
 }
 
 Ajax({
 	method: 'GET',
 	url: 'https://viacep.com.br/ws/01001000/json/',
 	ok: function(data){
-		let resp = this.responseText;
+		if(data.target.status === 200){
+			const resp = JSON.parse(data.target.responseText);
+			return console.log(resp);
+		}
+	},
 
-		return console.log(JSON.parse(resp));
+	error: function(){
+		console.clear();
+		return console.error("erro :", "ocorreu algum erro na requisição");
 	}
 });
