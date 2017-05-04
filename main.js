@@ -1,5 +1,5 @@
 const Ajax = function(obj){
-	self.obj = obj || {} || new Object();
+	this.obj = obj || {} || new Object();
 
 	let request = new XMLHttpRequest();
 	request.open(this.obj.method, this.obj.url, true);
