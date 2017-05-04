@@ -1,6 +1,6 @@
 const Ajax = function(obj){
 
-	// manipuling the object
+	// manipulating the object
 	this.obj = obj || {} || new Object();
 
 	const request = new XMLHttpRequest();
