@@ -1,5 +1,6 @@
 const Ajax = function(obj){
 
+	
 	// manipulating the object
 	this.obj = obj || {} || new Object();
 
