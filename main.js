@@ -3,7 +3,14 @@ const Ajax = function(obj){
 	
 	// manipulating the object
 	this.obj = obj || {} || new Object();
-
+	
+	// Send the files from server if existes file
+	this.obj.data = function(data){
+		let sendDatas = new FormDta(this.data);
+		return sendDatas;
+	}
+	
+	// Initialize Ajax Object
 	const request = new XMLHttpRequest();
 	request.open(this.obj.method, this.obj.url, true);
 
@@ -12,7 +19,7 @@ const Ajax = function(obj){
 	request.addEventListener('error', this.obj.error)
 
 	// Send of request's
-	request.send();
+	request.send(this.obj.data);
 
 }
 
