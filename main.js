@@ -6,7 +6,7 @@ const Ajax = function(obj){
 	
 	// Send the files from server if existes file
 	this.obj.data = function(data){
-		let sendDatas = new FormDta(this.data);
+		let sendDatas = new FormData(this.data);
 		return sendDatas;
 	}
 	
