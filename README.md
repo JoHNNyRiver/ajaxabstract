@@ -31,7 +31,7 @@ git clone git@github.com:JoHNNyRiver/ajaxabstract.git
 ou
 
 ```
-npm install ajaxabstract-js
+npm install ajaxabstractjs
 ```
 
 ### É simples começar com AJAX ABSTRACT
