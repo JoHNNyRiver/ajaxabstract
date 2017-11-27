@@ -1,0 +1,23 @@
+{
+  "name": "ajaxabstract",
+  "version": "2.0.0",
+  "description": "Simples e eficiente biblioteca javascript que abstrai o uso do construtor XMLHttpRequest",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoHNNyRiver/ajaxabstract.git"
+  },
+  "keywords": [
+    "ajax",
+    "abstract"
+  ],
+  "author": "João Ribeiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoHNNyRiver/ajaxabstract/issues"
+  },
+  "homepage": "https://github.com/JoHNNyRiver/ajaxabstract#readme"
+}

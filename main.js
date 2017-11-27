@@ -76,7 +76,7 @@ const Ajax = (function () {
    * @param  {object} options.key    chave de acesso ou de atenticação
    * @return {function}     retorna a propria função
    */
-  scope.settings = ({target = 0, key = null}) => {
+  scope.settings = function ({target = 0, key = null}) {
     const form = document.forms[target] ? document.forms[target] : document.querySelector(target)
 
     if (key) form.insertAdjacentHTML('beforeend', `<input type="hidden" value="${key}" name="key">`)
@@ -90,7 +90,7 @@ const Ajax = (function () {
    * @param  {string} application recebe otipo da aplicação
    * @return {function}  retorna a propria função
    */
-  scope.setHeader = (contentType, application) => {
+  scope.setHeader = function (contentType, application) {
     scope.headers = {}
     scope.headers['contentType'] = contentType
     scope.headers['application'] = application
