@@ -1,7 +1,7 @@
 /*
-* @Author: João Luís Ribeiro <joaoluis@ibaro.com.br>
-* @version: 2.0.0
-* @description: Ajaxabstract é uma bibliteca que usa XMLHttpRequest como abstração para facilitar o dia a dia do desenvolvedor web
+* author: João Luís Ribeiro <joaoluis@ibaro.com.br>
+* version: 2.0.0
+* description: Ajaxabstract é uma bibliteca que usa XMLHttpRequest como abstração para facilitar o dia a dia do desenvolvedor web
 */
 const Ajax = (function () {
   const methods = ['get', 'post', 'put', 'delete']
@@ -9,14 +9,14 @@ const Ajax = (function () {
 
   /**
    * helperHttp é uma função privada para auxilio dos metodos post, put, get e delete
-   * @param  {[string]}   	method recebe um string indicando o metodo a ser usado
-   * @param  {[variable]}   uri recebe outro parametro
-   * @param  {Function} 	cb callback da resposta retornada pelo metodos
-   * @param  {[object]}   	data recebe um objeto por padrão é nulo
+   * @param  {string}     method recebe um string indicando o metodo a ser usado
+   * @param  {variable}   uri recebe outro parametro
+   * @param  {Function}   cb callback da resposta retornada pelo metodos
+   * @param  {object}     data recebe um objeto por padrão é nulo
    * @return {object}       retorna um objeto como resposta no callback
    */
   const helperHttp = (method, uri, cb, data = null) => {
-  	const xhr = new window.XMLHttpRequest()
+    const xhr = new window.XMLHttpRequest()
 
     xhr.open(method, uri, true)
 
@@ -25,7 +25,7 @@ const Ajax = (function () {
     }
 
     xhr.onprogress = (data) => {
-    	scope.progress = data
+      scope.progress = data
     }
 
     xhr.onerror = () => {
@@ -35,24 +35,24 @@ const Ajax = (function () {
 
     xhr.onload = () => {
       if (xhr.status === 200) {
-      	let mimiType = xhr.getResponseHeader('Content-Type')
-      	let parser = null
+        let mimiType = xhr.getResponseHeader('Content-Type')
+        let parser = null
 
-    	switch (mimiType) {
-    		case 'application/json':
-    			parser = JSON.parse(xhr.responseText)
-    			break
-    		case 'text/html':
-    			const parserDom = new DOMParser()
-        		parser = parserDom.parseFromString(xhr.responseText, 'text/html')
-        		break
-        	case 'application/xml':
-        		const parserXML = new DOMParser()
-        		parser = parserXML.parseFromString(xhr.responseText, 'application/xml')
-        		break
-        	default:
-        		parser = false
-    	}
+        switch (mimiType) {
+          case 'application/json':
+            parser = JSON.parse(xhr.responseText)
+            break
+          case 'text/html':
+            const parserDom = new DOMParser()
+            parser = parserDom.parseFromString(xhr.responseText, 'text/html')
+            break
+          case 'application/xml':
+            const parserXML = new DOMParser()
+            parser = parserXML.parseFromString(xhr.responseText, 'application/xml')
+            break
+          default:
+            parser = false
+        }
 
         cb({
           data: xhr.responseText,
@@ -107,7 +107,7 @@ const Ajax = (function () {
       const data = (body instanceof FormData) ? body : JSON.stringify(body)
 
       if (typeof body === 'function') {
-      	cb = body
+        cb = body
       }
 
       helperHttp(method, uri, cb, data)
@@ -118,4 +118,5 @@ const Ajax = (function () {
   return scope
 })()
 
+// exportando
 export default Ajax
