@@ -96,7 +96,7 @@ const Ajax = (function () {
   * @return {function}  retorna a propria função
   */
   methods.forEach(method => {
-    scope[method] = (uri, body = null, cb) => {
+    scope[method] = function (uri, body = null, cb) {
       const data = (body instanceof window.FormData) ? body : JSON.stringify(body)
 
       if (typeof body === 'function') {
