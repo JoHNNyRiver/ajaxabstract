@@ -11,7 +11,11 @@ Livre para usar
 Javascript básico e vontade :)
 
 ```
-import Ajax from 'ajaxabstracjs' ou import Ajax from '/node_modules/ajaxabstractjs'
+import Ajax from 'ajaxabstracjs'
+
+ou
+
+import Ajax from './node_modules/ajaxabstractjs/ajaxabstractjs.js'
 
 Ajax.get('yourUrl', (res, err) => {
 	// heres go your logic
@@ -39,7 +43,11 @@ npm install ajaxabstractjs
 Importe ajaxabstract do diretorio onde a biblioteca se encontra ou instancie na tag script
 
 ```
-import Ajax from 'ajaxabstracjs' ou import Ajax from '/node_modules/ajaxabstractjs'
+import Ajax from 'ajaxabstracjs'
+
+ou
+
+import Ajax from './node_modules/ajaxabstractjs/ajaxabstractjs.js'
 
 
 Ajax.get('yourUrl', (res, err) => {
