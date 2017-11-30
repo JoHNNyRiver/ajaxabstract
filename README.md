@@ -49,6 +49,11 @@ ou
 
 import Ajax from './node_modules/ajaxabstractjs/ajaxabstractjs.js'
 
+ou
+
+<script src="./node_modules/ajaxabstractjs/ajaxabstractjs.min.js"></script>
+<script src="YOUR SCRIPT JS"></script>
+
 
 Ajax.get('yourUrl', (res, err) => {
 	// heres go your logic
@@ -66,8 +71,47 @@ document.forms[0].addEventListener('submit', event => {
 
 //exemplo de retorno
 {data: "{}", parsed: {…}, status: 200, statusText: "OK", time: ProgressEvent, …}
+
 ```
 
+## Config Headers (exemplo)
+```
+import Ajax from './node_modules/ajaxabstractjs/ajaxabstractjs.js'
+
+// Configurando o cabeçalho da requisição
+Ajax.setHeader('Content-Type', 'application/*')
+
+```
+
+## Config Opcionais (exemplo)
+```
+import Ajax from './node_modules/ajaxabstractjs/ajaxabstractjs.js'
+
+// Configurando o cabeçalho da requisição
+Ajax.settings({target: 'here you info the form on dom', key: 'your key'})
+
+// Depois no Dom
+<form action="">
+	<div class="inputGroup">
+		<label for="name">Name</label>
+		<input type="text" id="name" name="nm">
+	</div>
+
+	<input type="submit">
+
+	<input type="hidden" value="YOUR KEY WILL GO HERE" name="key">
+</form>
+
+document.forms[0].addEventListener('submit', function (event) {
+  event.preventDefault()
+
+  // Aqui sua key é enviada por meio do construtor FormData
+  Ajax.post('yourUrl', new FormData(this), (response, err) => {
+    if (err) throw new Error(err.message)
+    console.log(response)
+  })
+})
+```
 ## Feito com
 
 * Sublime Text - um incrivel editor de códigos
